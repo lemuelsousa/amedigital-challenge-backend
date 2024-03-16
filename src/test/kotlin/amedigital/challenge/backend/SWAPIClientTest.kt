@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest
 class SWAPIClientTest(
     @Autowired private val swapiClient: SWAPIClient
 ) {
-
     @Test
     fun getPlanets(){
         assertThat(swapiClient.getPlanets().size).isEqualTo(60)

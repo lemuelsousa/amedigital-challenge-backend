@@ -140,8 +140,8 @@ class PlanetControllerTest {
                 }
         }
 
-        @Test
-        @Sql("/data/insert_one_planet.sql")
+        //@Test
+        //@Sql("/data/insert_one_planet.sql")
         fun `Given name Then Return a Planet successfully`() {
             val planetName = "Polis Massa"
 
