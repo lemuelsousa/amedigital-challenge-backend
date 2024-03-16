@@ -145,7 +145,7 @@ class PlanetControllerTest {
         fun `Given name Then Return a Planet successfully`() {
             val planetName = "Polis Massa"
 
-            getPlanetByName("Polis Massa")
+            getPlanetByName(planetName)
                 .andExpect {
                     status { isOk() }
                     content {
