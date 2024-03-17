@@ -3,9 +3,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.2.3"
     id("io.spring.dependency-management") version "1.1.4"
+
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     kotlin("plugin.jpa") version "1.9.22"
+
+    id("com.avast.gradle.docker-compose") version "0.17.6"
+
 }
 
 group = "com.github.lemuelsousa"
@@ -41,4 +45,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+dockerCompose {
+    isRequiredBy(tasks.bootRun)
+    useComposeFiles.add("./docker/docker-compose.yaml")
 }
