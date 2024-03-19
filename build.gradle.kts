@@ -49,5 +49,5 @@ tasks.withType<Test> {
 
 dockerCompose {
     isRequiredBy(tasks.bootRun)
-    useComposeFiles.add("./docker/docker-compose.yaml")
+    startedServices.add("database")
 }
