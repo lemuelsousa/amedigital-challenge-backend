@@ -20,7 +20,7 @@ interface PlanetApi {
     fun searchByName(@RequestParam name: String): PlanetResponse
 
     @DeleteMapping("{id}")
-    fun remove(@PathVariable id: Long)
+    fun removeById(@PathVariable id: Long)
 }
 
 @RestController
@@ -52,7 +52,7 @@ class PlanetController(
             ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "Planet not found")
 
     @DeleteMapping("{id}")
-    override fun remove(@PathVariable id: Long) =
+    override fun removeById(@PathVariable id: Long) =
         planetService.remove(id)
 }
 
