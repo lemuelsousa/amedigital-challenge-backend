@@ -23,3 +23,60 @@ docker compose up
 ```shell
 ./gradlew bootrun
 ```
+
+## Routes
+example using [HTTPie cli](https://httpie.io/cli) <br>
+**Create a planet:**
+```shell
+http POST :8080/api/planet name="Polis Massa" climate="artificial temperate" terrain="airless asteroid"
+```
+**Search planet by name:**
+```shell
+http GET ':8080/api/planet/search?name=Polis Massa'
+```
+output:
+```json
+{
+"climate": "artificial temperate",
+"filmAppearances": 1,
+"id": 1,
+"name": "Polis Massa",
+"terrain": "airless asteroid"
+}
+```
+
+**Search planet by id:**
+```shell
+http GET :8080/api/planet/1
+```
+output:
+```json
+{
+"climate": "artificial temperate",
+"filmAppearances": 1,
+"id": 1,
+"name": "Polis Massa",
+"terrain": "airless asteroid"
+}
+```
+**List all planets:**
+```shell
+http GET :8080/api/planet/list
+```
+output:
+```json
+[
+  {
+    "climate": "artificial temperate",
+    "filmAppearances": 1,
+    "id": 1,
+    "name": "Polis Massa",
+    "terrain": "airless asteroid"
+  }
+]
+```
+
+**Delete planet by id:**
+```shell
+http DELETE :8080/api/planet/1
+```
