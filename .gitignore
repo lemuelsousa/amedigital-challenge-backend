@@ -31,7 +31,3 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-
-#env
-.env/.env_db
-.env/.env_api
