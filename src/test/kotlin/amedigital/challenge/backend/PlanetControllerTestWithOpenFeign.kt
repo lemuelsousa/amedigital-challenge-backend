@@ -9,9 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.cloud.openfeign.FeignClientBuilder
 import org.springframework.context.ApplicationContext
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.jdbc.Sql
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
 @Sql("/data/remove.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_CLASS)
 class PlanetControllerTestWithOpenFeign(
     @LocalServerPort private val localServerPort: Int,
